@@ -32,7 +32,8 @@ render(Template, Vars, Target) ->
 compile_file(Template) ->
     Mod = template_module(Template),
     Opts =
-        [{custom_filters_modules, [index, lpad_template_filters]},
+        [{auto_escape, false},
+         {custom_filters_modules, [index, lpad_template_filters]},
          {custom_tags_modules, [index]}],
     handle_compile(erlydtl:compile(Template, Mod, Opts), Mod, Template).
 
@@ -79,7 +80,9 @@ render_string(Str, Vars) ->
 compile_str(Str) ->
     Template = unicode:characters_to_binary(Str),
     Mod = str_module(Str),
-    Opts = [{custom_filters_modules, [index, lpad_template_filters]}],
+    Opts =
+        [{auto_escape, false},
+         {custom_filters_modules, [index, lpad_template_filters]}],
     handle_compile(erlydtl:compile(Template, Mod, Opts), Mod, Str).
 
 str_module(Str) ->

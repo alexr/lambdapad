@@ -3,7 +3,7 @@ PROJECT = lpad
 DEPS = jiffy erlydtl getopt
 
 dep_jiffy = https://github.com/davisp/jiffy.git 0.9.0
-dep_erlydtl = https://github.com/erlydtl/erlydtl.git 0.8.0
+dep_erlydtl = https://github.com/erlydtl/erlydtl.git 0.10.0
 dep_getopt = https://github.com/jcomellas/getopt.git
 
 ERLC_OPTS = +debug_info
